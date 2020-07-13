@@ -1,0 +1,13 @@
+version: '2'
+services:
+    fms-app:
+        image: fms
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://fms-mysql:3306/cts_fms?useUnicode=true&characterEncoding=utf8&useSSL=false
+        ports:
+            - 8080:8080
+    fms-mysql:
+        extends:
+            file: mysql.yml
+            service: fms-mysql

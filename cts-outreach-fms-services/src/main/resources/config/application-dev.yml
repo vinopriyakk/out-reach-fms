@@ -1,0 +1,81 @@
+spring:
+    profiles:
+        active: dev
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: false 
+    jackson:
+        serialization.indent_output: true
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/cts_outreach_fms?useSSL=false&autoReconnect=true
+        jdbcUrl: jdbc:mysql://localhost:3306/cts_outreach_fms?useSSL=false&autoReconnect=true
+        username: 
+        password: 
+    h2:
+        console:
+            enabled: false
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5Dialect
+        database: MYSQL
+        show-sql: true
+        properties:
+            hibernate.id.new_generator_mappings: true
+            hibernate.cache.use_second_level_cache: true
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            hibernate.hbm2ddl.auto: update #Comment out for H2
+            hibernate.cache.region.factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+            hibernate.enable_lazy_load_no_trans: true
+            hibernate.connection.zeroDateTimeBehavior : convertToNull
+    
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: 
+        password: 
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+        
+    messages:
+        cache-seconds: 1
+    thymeleaf:
+        cache: false
+
+server:
+    port: 8080
+
+fms:
+    http:
+        version: V_1_1 
+    cache: 
+        ehcache: 
+            time-to-live-seconds: 3600 
+            max-entries: 100 
+    mail: 
+        from: vinopriyamca@gmail.com
+        base-url: http://localhost:4200
+  
+    logging:
+        logstash:
+            enabled: false
+            host: localhost
+            port: 5000
+            queue-size: 512
+    
+    shared:
+        file:
+            path: "/home/Documents/Vino_Angular/Excel/"
+            new-path: "/home/Documents/Vino_Angular/"
+            excel-volunteer-not-attended: "Volunteer_Enrollment_Details_NotAttempted.xlsx"
+            excel-volunteer-unregistered: "Volunteer_Enrollment_Details_Unregister.xlsx"
+            excel-volunteer-event-information: "Outreach_Event_Information.xlsx"
+            excel-volunteer-event-summary: "Outreach_Events_Summary.xlsx"
+ 
+application:

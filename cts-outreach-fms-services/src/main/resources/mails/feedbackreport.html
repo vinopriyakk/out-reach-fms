@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.activation.title}">Cognizant OutReach-Feedback-Report</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{email.fms.feedback.greeting}">
+            Dear
+        </p>
+        <p th:text="#{email.fms.feedback.text1}">
+            Please find attached Out Reach Report
+        </p>
+        <p>
+            <span th:text="#{email.fms.feedback.text2}">Regards, </span>
+            <br/>
+            <em th:text="#{email.signature}">FMS.</em>
+        </p>
+    </body>
+</html>

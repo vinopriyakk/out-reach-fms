@@ -1,0 +1,54 @@
+management:
+    security:
+        roles: ADMIN
+    context-path: /management
+    health:
+        mail:
+            enabled: false # 
+spring:
+    application:
+        name: fms
+    profiles:
+        active: #spring.profiles.active#
+    jackson:
+        serialization.write_dates_as_timestamps: false
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: none
+            naming:
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    messages:
+        basename: i18n/messages
+    mvc:
+        favicon:
+            enabled: false
+    thymeleaf:
+        mode: XHTML
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 10MB 
+    http:
+        multipart:
+            enable: false           
+
+security:
+    basic:
+        enabled: false
+
+server:
+    session:
+        cookie:
+            http-only: true
+
+info:
+    project:
+        version: #project.version#
+
+fms:
+    mail:
+        from: fms@localhost
+        
+application:
